@@ -1,0 +1,11 @@
+{
+    "name": "PX to EM calculator",
+    "version": "1.0.0",
+    "description": "PX to EM",
+    "manifest_version": 3,
+    "author": "Radosław Górnacki",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "PX to EM calculator"
+    }
+}
