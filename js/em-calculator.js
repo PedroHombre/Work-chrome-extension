@@ -73,3 +73,5 @@ function copyToClipboard() {
 		return;
 	});
 }
+
+console.log();
