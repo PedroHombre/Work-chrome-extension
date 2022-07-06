@@ -1,3 +1,7 @@
+// TODO: Add support for calculating em to px
+// TODO: Remove invalid fields code
+// TODO: Auto disable unused field on calcuation
+
 // Run calculate() function when submit button is clicked
 document.getElementById('submit').addEventListener('click', calculate);
 
