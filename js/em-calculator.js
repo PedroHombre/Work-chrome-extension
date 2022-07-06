@@ -8,29 +8,16 @@ let inputSE = document.getElementById('inputSizeEm');
 inputF.value = '16';
 inputF.classList.add('filled');
 
-inputF.addEventListener('input', () => {
-	if (inputF.value != '') {
-		inputF.classList.add('filled');
-	} else {
-		inputF.classList.remove('filled');
-	}
-});
-
-inputS.addEventListener('input', () => {
-	if (inputS.value != '') {
-		inputS.classList.add('filled');
-	} else {
-		inputS.classList.remove('filled');
-	}
-});
-
-inputSE.addEventListener('input', () => {
-	if (inputSE.value != '') {
-		inputSE.classList.add('filled');
-	} else {
-		inputSE.classList.remove('filled');
-	}
-});
+let inputs = [inputF, inputS, inputSE];
+if (inputs.length > 0) {
+	inputs.forEach((input) => {
+		input.addEventListener('input', () => {
+			input.value != ''
+				? input.classList.add('filled')
+				: input.classList.remove('filled');
+		});
+	});
+}
 
 output.addEventListener('click', copyToClickboard);
 
