@@ -3,6 +3,7 @@ document.getElementById('submit').addEventListener('click', calculate);
 
 // Get inputs and result fields
 let output = document.getElementById('result');
+let outputWrapper = document.getElementById('resultWrapper');
 let inputF = document.getElementById('inputDefaultSize');
 let inputS = document.getElementById('inputSize');
 let inputSE = document.getElementById('inputSizeEm');
@@ -27,7 +28,7 @@ if (inputs.length > 0) {
 }
 
 // Run copyToClipboard function when result tag is clicked
-output.addEventListener('click', copyToClipboard);
+outputWrapper.addEventListener('click', copyToClipboard);
 
 // Function calculatin Em and Px values
 function calculate() {
@@ -55,10 +56,14 @@ function calculate() {
 
 	output.innerHTML =
 		resultMsg + ' <span id="resultCopy">' + result + 'em</span>';
+
+	outputWrapper.classList.add('calculated');
 }
 
 // Function that copies result to clipboard
 function copyToClipboard() {
+	if (!outputWrapper.classList.contains('calculated')) return;
+
 	if (!navigator.clipboard) return;
 
 	let copyText = document.getElementById('resultCopy').innerHTML;

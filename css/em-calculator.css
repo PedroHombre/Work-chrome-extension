@@ -74,6 +74,23 @@ button:hover {
 	transform: translateY(-3px);
 }
 
+#resultWrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+#resultWrapper svg {
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+}
+
+#resultWrapper.calculated svg {
+	opacity: 1;
+}
+
 #result {
 	font-size: 1.125em;
 }
