@@ -12,10 +12,22 @@
 
         <h2>PX to EM converter</h2>
 
-        <input type="text" id="inputDefaultSize">
-        <input type="text" id="inputSize">
+        <div class="input-group">
+            <label for="inputDefaultSize">Default font-size:</label>
+            <input type="text" id="inputDefaultSize">
+        </div>
 
-        <p id="result"></p>
+        <div class="input-group">
+            <label for="inputSize">Px to Em</label>
+            <input type="text" id="inputSize">
+        </div>
+
+        <div class="input-group">
+            <label for="inputSizeEm">Em to Px</label>
+            <input type="text" id="inputSizeEm">
+        </div>
+
+        <p id="result">Result: </p>
 
         <button id="submit">Convert</button>
     </body>
