@@ -32,6 +32,8 @@ inputSE.addEventListener('input', () => {
 	}
 });
 
+output.addEventListener('click', copyToClickboard);
+
 let resultMsg = 'Result:';
 
 function calculate() {
@@ -60,5 +62,13 @@ function calculate() {
 
 	if (Number.isNaN(result)) result = 0;
 
-	output.innerHTML = resultMsg + ' ' + result + 'em';
+	output.innerHTML =
+		resultMsg + ' <span id="resultCopy">' + result + 'em</span>';
+}
+
+function copyToClickboard() {
+	let copyText = document.getElementById('resultCopy').innerHTML;
+
+	navigator.clipboard.writeText(copyText);
+	alert('coppied!');
 }
