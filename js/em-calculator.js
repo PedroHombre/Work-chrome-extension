@@ -74,4 +74,4 @@ function copyToClipboard() {
 	});
 }
 
-console.log();
+console.log('s');
