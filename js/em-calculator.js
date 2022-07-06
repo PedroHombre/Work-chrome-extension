@@ -1,7 +1,10 @@
 document.getElementById('submit').addEventListener('click', calculate);
+
 let output = document.getElementById('result');
 let inputF = document.getElementById('inputDefaultSize');
 let inputS = document.getElementById('inputSize');
+
+let resultMsg = 'Result:';
 
 function calculate() {
 	let valueFirst = inputF.value;
@@ -29,5 +32,5 @@ function calculate() {
 
 	if (Number.isNaN(result)) result = 0;
 
-	output.innerHTML = result;
+	output.innerHTML = resultMsg + ' ' + result;
 }
