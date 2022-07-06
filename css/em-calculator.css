@@ -3,20 +3,37 @@
 body {
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
+	color: var(--darker);
+}
+
+.px-to-em-calc {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 15px;
 	padding: 20px;
+	background: var(--white);
+}
+
+a {
+	position: absolute;
+	left: 15px;
+	top: 15px;
+	transition: color 0.3s ease-out;
+	color: var(--darker);
+}
+
+a:hover {
+	color: var(--main);
 }
 
 h2 {
 	text-align: center;
+	padding: 20px 0 30px 0;
 }
 
 .input-group {
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 }
 
 input {
@@ -28,25 +45,29 @@ input {
 
 input ~ label {
 	position: absolute;
-	top: 50%;
-	left: 20px;
-	padding: 0px 15px;
-	transform: translateY(-50%);
+	top: -11px;
+	left: 10px;
+	font-size: 0.9em;
+	background: var(--white);
+	padding: 0px 10px;
 	color: var(--dark);
 	font-weight: 600;
-	transition: top 0.2s ease-out, font-size 0.2s ease-out,
-		background 0.2s ease-out, left 0.2s ease-out;
-}
-
-input:focus ~ label,
-input.filled ~ label {
-	top: -2px;
-	left: 15px;
-	font-size: 0.8em;
-	background: var(--white);
-	box-sizing: border-box;
 }
 
 input:focus {
 	outline: none;
+}
+
+button {
+	border: none;
+	background: var(--main);
+	color: var(--white);
+	font-size: 1.1em;
+	padding: 8px 20px;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+#result {
+	font-size: 1.125em;
 }

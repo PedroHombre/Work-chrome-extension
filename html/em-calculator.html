@@ -8,30 +8,32 @@
     </head>
 
     <body>
-        <a href="../index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m12 20-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825l5.6 5.6Z"/></svg>
-        </a>
+        <section class="px-to-em-calc">
+            <a href="../index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" width="24"><path d="m12 20-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825l5.6 5.6Z"/></svg>
+            </a>
 
-        <h2>PX to EM converter</h2>
+            <h2>PX to EM converter</h2>
 
-        <div class="input-group">
-            <input type="text" id="inputDefaultSize">
-            <label for="inputDefaultSize" defaultValue="16">Default font-size:</label>
-        </div>
+            <div class="input-group">
+                <input type="text" id="inputDefaultSize">
+                <label for="inputDefaultSize" defaultValue="16">Default font-size:</label>
+            </div>
 
-        <div class="input-group">
-            <input type="text" id="inputSize">
-            <label for="inputSize">Px to Em</label>
-        </div>
+            <div class="input-group">
+                <input type="text" id="inputSize">
+                <label for="inputSize">Px to Em</label>
+            </div>
 
-        <div class="input-group">
-            <input type="text" id="inputSizeEm">
-            <label for="inputSizeEm">Em to Px</label>
-        </div>
+            <div class="input-group">
+                <input type="text" id="inputSizeEm">
+                <label for="inputSizeEm">Em to Px</label>
+            </div>
 
-        <button id="submit">Convert</button>
+            <button id="submit" title="Calculate values">Convert</button>
 
-        <p id="result">Result: </p>
+            <p id="result">Result: </p>
+        </section>
     </body>
 
     <script src="../js/em-calculator.js"></script>
