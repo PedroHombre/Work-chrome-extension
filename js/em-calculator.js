@@ -73,5 +73,3 @@ function copyToClipboard() {
 		return;
 	});
 }
-
-console.log('s');
