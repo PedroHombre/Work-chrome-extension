@@ -12,6 +12,7 @@ body {
 	align-items: center;
 	padding: 20px;
 	background: var(--white);
+	max-width: 300px;
 }
 
 a {
@@ -66,6 +67,11 @@ button {
 	padding: 8px 20px;
 	border-radius: 50px;
 	cursor: pointer;
+	transition: transform 0.3s ease-out;
+}
+
+button:hover {
+	transform: translateY(-3px);
 }
 
 #result {
