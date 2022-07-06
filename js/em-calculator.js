@@ -20,16 +20,16 @@ inputF.classList.add('filled');
 let resultMsg = 'Result:';
 
 // Add filled class to inputs on input event
-let inputs = [inputF, inputS, inputSE];
-if (inputs.length > 0) {
-	inputs.forEach((input) => {
-		input.addEventListener('input', () => {
-			input.value != ''
-				? input.classList.add('filled')
-				: input.classList.remove('filled');
-		});
-	});
-}
+// let inputs = [inputF, inputS, inputSE];
+// if (inputs.length > 0) {
+// 	inputs.forEach((input) => {
+// 		input.addEventListener('input', () => {
+// 			input.value != ''
+// 				? input.classList.add('filled')
+// 				: input.classList.remove('filled');
+// 		});
+// 	});
+// }
 
 // Run copyToClipboard function when result tag is clicked
 outputWrapper.addEventListener('click', copyToClipboard);
@@ -49,14 +49,14 @@ function calculate() {
 	valueSecond = parseInt(valueSecond);
 
 	// If fields contain non number type set class to invalid and abort
-	if (!Number.isInteger(valueFirst)) {
-		inputF.classList.add('invalid');
+	// if (!Number.isInteger(valueFirst)) {
+	// 	inputF.classList.add('invalid');
 
-		if (!Number.isInteger(valueSecond)) {
-			inputS.classList.add('invalid');
-		}
-		return;
-	}
+	// 	if (!Number.isInteger(valueSecond)) {
+	// 		inputS.classList.add('invalid');
+	// 	}
+	// 	return;
+	// }
 
 	// Calculate result
 	let result = valueSecond / valueFirst;
