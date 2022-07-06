@@ -1,13 +1,20 @@
+// Run calculate() function when submit button is clicked
 document.getElementById('submit').addEventListener('click', calculate);
 
+// Get inputs and result fields
 let output = document.getElementById('result');
 let inputF = document.getElementById('inputDefaultSize');
 let inputS = document.getElementById('inputSize');
 let inputSE = document.getElementById('inputSizeEm');
 
+// Set default font-size field value and toggle it's class
 inputF.value = '16';
 inputF.classList.add('filled');
 
+// Set result message
+let resultMsg = 'Result:';
+
+// Add filled class to inputs on input event
 let inputs = [inputF, inputS, inputSE];
 if (inputs.length > 0) {
 	inputs.forEach((input) => {
@@ -19,10 +26,10 @@ if (inputs.length > 0) {
 	});
 }
 
-output.addEventListener('click', copyToClickboard);
+// Run copyToClipboard function when result tag is clicked
+output.addEventListener('click', copyToClipboard);
 
-let resultMsg = 'Result:';
-
+// Function calculatin Em and Px values
 function calculate() {
 	let valueFirst = inputF.value;
 	let valueSecond = inputS.value;
@@ -42,9 +49,6 @@ function calculate() {
 		return;
 	}
 
-	console.log(valueFirst);
-	console.log(valueSecond);
-
 	let result = valueSecond / valueFirst;
 
 	if (Number.isNaN(result)) result = 0;
@@ -53,7 +57,8 @@ function calculate() {
 		resultMsg + ' <span id="resultCopy">' + result + 'em</span>';
 }
 
-function copyToClickboard() {
+// Function that copies result to clipboard
+function copyToClipboard() {
 	if (!navigator.clipboard) return;
 
 	let copyText = document.getElementById('resultCopy').innerHTML;
