@@ -67,8 +67,12 @@ function calculate() {
 }
 
 function copyToClickboard() {
+	if (!navigator.clipboard) return;
+
 	let copyText = document.getElementById('resultCopy').innerHTML;
 
-	navigator.clipboard.writeText(copyText);
-	alert('coppied!');
+	navigator.clipboard.writeText(copyText).then(() => {
+		alert('coppied!');
+		return;
+	});
 }
