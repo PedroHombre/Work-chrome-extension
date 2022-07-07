@@ -11,16 +11,22 @@
 
 		if (timeoutComplete === true) {
 			clock.classList.add('complete');
-			clock.innerText = 'fajrant';
+			clock.innerText = 'Fajrant';
 
 			setTimeout(countdown, 1000);
 			return;
+		} else {
+			clock.classList.remove('complete');
 		}
 
 		let remaining = (finishHour - now) / 1000;
 		let hours = Math.floor((remaining / 60 / 60) % 60);
+
 		let minutes = Math.floor((remaining / 60) % 60);
+		if (minutes < 10) minutes = '0' + minutes;
+
 		let seconds = Math.floor(remaining % 60);
+		if (seconds < 10) seconds = '0' + seconds;
 
 		clock.innerText = hours + ' : ' + minutes + ' : ' + seconds;
 		setTimeout(countdown, 1000);

@@ -1,11 +1,11 @@
 {
-    "name": "PX to EM calculator",
+    "name": "Work extension",
     "version": "1.0.0",
-    "description": "PX to EM",
+    "description": "Work extension including units calculator, freetime countdown",
     "manifest_version": 3,
     "author": "Radosław Górnacki",
     "action":{
         "default_popup": "index.html",
-        "default_title": "PX to EM calculator"
+        "default_title": "Work extension"
     }
 }
