@@ -19,63 +19,31 @@
 	let thirdCigWindow = new Date();
 	thirdCigWindow.setHours(14, cigWindow, 0);
 
-	console.log(firstCigWindow);
-
 	let firstCigClock = document.getElementById('first');
 	let secondCigClock = document.getElementById('second');
 	let thirdCigClock = document.getElementById('third');
 
-	let completeText = 'meh';
+	let completeText = 'czas minął';
 	let completeWindowText = 'czas na petka';
 
-	function countdownCig() {
-		let now = new Date();
+	function firstCigCountdown(time) {
+		let now = time;
 
 		let isFirstCountdownComplete = false;
-		let isSecondCountdownComplete = false;
-		let isThirdCountdownComplete = false;
 
-		// First countdown timet
 		now >= firstCig
 			? (isFirstCountdownComplete = true)
 			: (isFirstCountdownComplete = false);
 
-		now >= secondCig
-			? (isSecondCountdownComplete = true)
-			: (isSecondCountdownComplete = false);
-
-		now >= thirdCig
-			? (isThirdCountdownComplete = true)
-			: (isThirdCountdownComplete = false);
-
 		let firstCigRemaining = (firstCig - now) / 1000;
-		let secondCigRemaining = (secondCig - now) / 1000;
-		let thirdCigRemaining = (thirdCig - now) / 1000;
 
-		// Counting remaining hours
 		let firstCigHours = Math.floor((firstCigRemaining / 60 / 60) % 60);
-		let secondCigHours = Math.floor((secondCigRemaining / 60 / 60) % 60);
-		let thirdCigHours = Math.floor((thirdCigRemaining / 60 / 60) % 60);
 
-		// Counting remaining minutes
 		let firstCigMinutes = Math.floor((firstCigRemaining / 60) % 60);
 		if (firstCigMinutes < 10) firstCigMinutes = '0' + firstCigMinutes;
 
-		let secondCigMinutes = Math.floor((secondCigRemaining / 60) % 60);
-		if (secondCigMinutes < 10) secondCigMinutes = '0' + secondCigMinutes;
-
-		let thirdCigMinutes = Math.floor((thirdCigRemaining / 60) % 60);
-		if (thirdCigMinutes < 10) thirdCigMinutes = '0' + thirdCigMinutes;
-
-		// Counting remaining seconds
 		let firstCigSeconds = Math.floor(firstCigRemaining % 60);
 		if (firstCigSeconds < 10) firstCigSeconds = '0' + firstCigSeconds;
-
-		let secondCigSeconds = Math.floor(secondCigRemaining % 60);
-		if (secondCigSeconds < 10) secondCigSeconds = '0' + secondCigSeconds;
-
-		let thirdCigSeconds = Math.floor(thirdCigRemaining % 60);
-		if (thirdCigSeconds < 10) thirdCigSeconds = '0' + thirdCigSeconds;
 
 		if (!isFirstCountdownComplete) {
 			firstCigClock.innerText =
@@ -89,6 +57,26 @@
 		} else {
 			firstCigClock.innerText = completeText;
 		}
+	}
+
+	function secondCigCountdown(time) {
+		let now = time;
+
+		let isSecondCountdownComplete = false;
+
+		now >= secondCig
+			? (isSecondCountdownComplete = true)
+			: (isSecondCountdownComplete = false);
+
+		let secondCigRemaining = (secondCig - now) / 1000;
+
+		let secondCigHours = Math.floor((secondCigRemaining / 60 / 60) % 60);
+
+		let secondCigMinutes = Math.floor((secondCigRemaining / 60) % 60);
+		if (secondCigMinutes < 10) secondCigMinutes = '0' + secondCigMinutes;
+
+		let secondCigSeconds = Math.floor(secondCigRemaining % 60);
+		if (secondCigSeconds < 10) secondCigSeconds = '0' + secondCigSeconds;
 
 		if (!isSecondCountdownComplete) {
 			secondCigClock.innerText =
@@ -102,6 +90,26 @@
 		} else {
 			secondCigClock.innerText = completeText;
 		}
+	}
+
+	function thirdCigCountdown(time) {
+		let now = time;
+
+		let isThirdCountdownComplete = false;
+
+		now >= thirdCig
+			? (isThirdCountdownComplete = true)
+			: (isThirdCountdownComplete = false);
+
+		let thirdCigRemaining = (thirdCig - now) / 1000;
+
+		let thirdCigHours = Math.floor((thirdCigRemaining / 60 / 60) % 60);
+
+		let thirdCigMinutes = Math.floor((thirdCigRemaining / 60) % 60);
+		if (thirdCigMinutes < 10) thirdCigMinutes = '0' + thirdCigMinutes;
+
+		let thirdCigSeconds = Math.floor(thirdCigRemaining % 60);
+		if (thirdCigSeconds < 10) thirdCigSeconds = '0' + thirdCigSeconds;
 
 		if (!isThirdCountdownComplete) {
 			thirdCigClock.innerText =
@@ -115,9 +123,17 @@
 		} else {
 			thirdCigClock.innerText = completeText;
 		}
-
-		setTimeout(countdownCig, 1000);
 	}
 
-	document.addEventListener('DOMContentLoaded', countdownCig);
+	function countdownCigs() {
+		let now = new Date();
+
+		firstCigCountdown(now);
+		secondCigCountdown(now);
+		thirdCigCountdown(now);
+
+		setTimeout(countdownCigs, 1000);
+	}
+
+	document.addEventListener('DOMContentLoaded', countdownCigs);
 })();
