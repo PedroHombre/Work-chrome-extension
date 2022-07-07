@@ -19,6 +19,28 @@ inputF.classList.add('filled');
 // Set result message
 let resultMsg = 'Result:';
 
+// Initiate conversion variables
+let pxConversion = true;
+let emConversion = false;
+
+// Listen for input in PX to EM field and adjust calculation mode
+inputS.addEventListener('input', () => {
+	if (inputS.value != '') {
+		pxConversion = true;
+		emConversion = false;
+
+		inputSE.value = '';
+	}
+});
+
+// Listen for input in EM to PX field and adjust calculation mode
+inputSE.addEventListener('input', () => {
+	pxConversion = false;
+	emConversion = true;
+
+	inputS.value = '';
+});
+
 // Add filled class to inputs on input event
 // let inputs = [inputF, inputS, inputSE];
 // if (inputs.length > 0) {
@@ -36,37 +58,41 @@ outputWrapper.addEventListener('click', copyToClipboard);
 
 // Function calculatin Em and Px values
 function calculate() {
-	// Obtain values from inputs
+	// Initiate valueSecond variable
+	let valueSecond;
+
+	// Get default font size input's field value
 	let valueFirst = inputF.value;
-	let valueSecond = inputS.value;
+
+	// Obtain values from inputs according to calculation type
+	pxConversion === true
+		? (valueSecond = inputS.value)
+		: (valueSecond = inputSE.value);
 
 	// Trim witespace from data
 	valueFirst = valueFirst.trim();
 	valueSecond = valueSecond.trim();
 
-	// Parse result to int type
-	valueFirst = parseInt(valueFirst);
-	valueSecond = parseInt(valueSecond);
+	// Parse result to float type
+	valueFirst = parseFloat(valueFirst);
+	valueSecond = parseFloat(valueSecond);
 
-	// If fields contain non number type set class to invalid and abort
-	// if (!Number.isInteger(valueFirst)) {
-	// 	inputF.classList.add('invalid');
-
-	// 	if (!Number.isInteger(valueSecond)) {
-	// 		inputS.classList.add('invalid');
-	// 	}
-	// 	return;
-	// }
-
-	// Calculate result
-	let result = valueSecond / valueFirst;
+	// Calculate result according to calculation type
+	let result;
+	pxConversion === true
+		? (result = valueSecond / valueFirst)
+		: (result = valueFirst * valueSecond);
 
 	// If there isn's a result set result to 0
 	if (Number.isNaN(result)) result = 0;
 
+	// Set data type for result display according to calculaion type
+	let type;
+	pxConversion === true ? (type = 'em') : (type = 'px');
+
 	// Display result
 	output.innerHTML =
-		resultMsg + ' <span id="resultCopy">' + result + 'em</span>';
+		resultMsg + ' <span id="resultCopy">' + result + type + '</span>';
 
 	// Add calculated class to result wrapper whan user performs a calculation
 	outputWrapper.classList.add('calculated');
