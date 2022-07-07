@@ -1,7 +1,3 @@
-// TODO: Add support for calculating em to px
-// TODO: Remove invalid fields code
-// TODO: Auto disable unused field on calcuation
-
 // Run calculate() function when submit button is clicked
 document.getElementById('submit').addEventListener('click', calculate);
 
@@ -40,18 +36,6 @@ inputSE.addEventListener('input', () => {
 
 	inputS.value = '';
 });
-
-// Add filled class to inputs on input event
-// let inputs = [inputF, inputS, inputSE];
-// if (inputs.length > 0) {
-// 	inputs.forEach((input) => {
-// 		input.addEventListener('input', () => {
-// 			input.value != ''
-// 				? input.classList.add('filled')
-// 				: input.classList.remove('filled');
-// 		});
-// 	});
-// }
 
 // Run copyToClipboard function when result tag is clicked
 outputWrapper.addEventListener('click', copyToClipboard);
