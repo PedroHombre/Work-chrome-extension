@@ -1,0 +1,6 @@
+@import 'variables.css';
+@import 'frequently-used.css';
+
+html {
+	width: 300px;
+}

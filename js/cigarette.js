@@ -8,30 +8,43 @@
 	let thirdCig = new Date();
 	thirdCig.setHours(14, 0, 0);
 
+	let cigWindow = 10;
+
+	let firstCigWindow = new Date();
+	firstCigWindow.setHours(10, cigWindow, 0);
+
+	let secondCigWindow = new Date();
+	secondCigWindow.setHours(12, cigWindow, 0);
+
+	let thirdCigWindow = new Date();
+	thirdCigWindow.setHours(14, cigWindow, 0);
+
+	console.log(firstCigWindow);
+
 	let firstCigClock = document.getElementById('first');
 	let secondCigClock = document.getElementById('second');
 	let thirdCigClock = document.getElementById('third');
 
-	let completeText = 'F';
+	let completeText = 'meh';
+	let completeWindowText = 'czas na petka';
 
 	function countdownCig() {
 		let now = new Date();
-		let cigWindow = 10;
 
 		let isFirstCountdownComplete = false;
 		let isSecondCountdownComplete = false;
 		let isThirdCountdownComplete = false;
 
 		// First countdown timet
-		now > firstCig
+		now >= firstCig
 			? (isFirstCountdownComplete = true)
 			: (isFirstCountdownComplete = false);
 
-		now > secondCig
+		now >= secondCig
 			? (isSecondCountdownComplete = true)
 			: (isSecondCountdownComplete = false);
 
-		now > thirdCig
+		now >= thirdCig
 			? (isThirdCountdownComplete = true)
 			: (isThirdCountdownComplete = false);
 
@@ -71,6 +84,8 @@
 				firstCigMinutes +
 				' : ' +
 				firstCigSeconds;
+		} else if (now >= firstCig && now <= firstCigWindow) {
+			firstCigClock.innerText = completeWindowText;
 		} else {
 			firstCigClock.innerText = completeText;
 		}
@@ -82,6 +97,8 @@
 				secondCigMinutes +
 				' : ' +
 				secondCigSeconds;
+		} else if (now >= secondCig && now <= secondCigWindow) {
+			secondCigClock.innerText = completeWindowText;
 		} else {
 			secondCigClock.innerText = completeText;
 		}
@@ -93,6 +110,8 @@
 				thirdCigMinutes +
 				' : ' +
 				thirdCigSeconds;
+		} else if (now >= thirdCig && now <= thirdCigWindow) {
+			thirdCigClock.innerText = completeWindowText;
 		} else {
 			thirdCigClock.innerText = completeText;
 		}
