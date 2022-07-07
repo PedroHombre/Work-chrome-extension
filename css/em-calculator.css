@@ -68,6 +68,7 @@ button {
 	border-radius: 50px;
 	cursor: pointer;
 	transition: transform 0.3s ease-out;
+	box-shadow: 0px 1px 6px 0px rgba(66, 68, 90, 0.5);
 }
 
 button:hover {
@@ -87,8 +88,25 @@ button:hover {
 	transition: opacity 0.3s ease-out;
 }
 
+#resultWrapper.calculated {
+	cursor: pointer;
+}
+
 #resultWrapper.calculated svg {
 	opacity: 1;
+	transition: fill 0.3s ease-out;
+}
+
+#resultWrapper #resultCopy {
+	transition: color 0.3s ease-out;
+}
+
+#resultWrapper.copied #resultCopy {
+	color: var(--main);
+}
+
+#resultWrapper.copied svg {
+	fill: var(--main);
 }
 
 #result {

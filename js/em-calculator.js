@@ -80,6 +80,7 @@ function calculate() {
 
 	// Add calculated class to result wrapper whan user performs a calculation
 	outputWrapper.classList.add('calculated');
+	outputWrapper.classList.remove('copied');
 }
 
 // Function that copies result to clipboard
@@ -95,7 +96,7 @@ function copyToClipboard() {
 
 	// Copy text to clipboard and send an alert
 	navigator.clipboard.writeText(copyText).then(() => {
-		alert('coppied!');
+		outputWrapper.classList.add('copied');
 		return;
 	});
 }
